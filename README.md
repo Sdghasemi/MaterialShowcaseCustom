@@ -1,7 +1,7 @@
-# MaterialShowcaseView
+# MaterialShowcaseCustom
 A Material Design themed ShowcaseView for Android
 
-This library is heavily inspired by the original [ShowcaseView library][1].
+This library is heavily inspired by the original [MaterialShowcaseView library][1].
 
 Since Google introduced the Material design philosophy I have seen quite a few apps with a nice clean, flat showcase view (the Youtube app is a good example). The only library out there however is the [original one][1]. This was a great library for a long time but the theming is now looking a bit dated.
 
@@ -31,12 +31,12 @@ Then add the dependency to your module's build.gradle:
 
 /app/build.gradle
 ```groovy
-compile 'com.github.deano2390:MaterialShowcaseView:1.0.6'
+compile 'com.github.Sdghasemi:MaterialShowcaseCustom:1.1.0'
 ```
 
 NOTE: Some people have mentioned that they needed to add the @aar suffix to get it to resolve from JitPack:
 ```groovy
-compile 'com.github.deano2390:MaterialShowcaseView:1.0.6@aar'
+compile 'com.github.Sdghasemi:MaterialShowcaseCustom:1.1.0@aar'
 ```
 
 # How to use
@@ -51,6 +51,12 @@ This is the basic usage of a single showcase view, you should check out the samp
                 .setDismissText("GOT IT")
                 .setContentText("This is some amazing feature you should know about")
                 .setDelay(withDelay) // optional but starting animations immediately in onCreate can make them choppy
+                .setSwitchLanguageText("Switch Language", new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View view) {
+                                                // Your onClick code here...
+                                            }
+                                        })
                 .singleUse(SHOWCASE_ID) // provide a unique ID used to ensure it is only shown once
                 .show();
                 
@@ -104,7 +110,7 @@ Publishing libraries to Maven is a chore that takes time and effort. Jitpack.io 
 
 
 
-[1]: https://github.com/amlcurran/ShowcaseView
+[1]: https://github.com/deano2390/MaterialShowcaseView
 [2]: http://i.imgur.com/rFHENgz.gif
 [3]: https://code.google.com/p/android-flowtextview/
 [4]: https://img.shields.io/github/release/deano2390/MaterialShowcaseView.svg?label=JitPack
